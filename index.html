@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>flipkart</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="login-page">
+  <div class="login-box">
+    <h2>Welcome to flipkart</h2>
+    <p>Please Login to Continue</p>
+
+    <input type="text" id="username" placeholder="Enter Username">
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <button onclick="loginUser()">Login</button>
+  </div>
+</div>
+
+<header class="header">
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  <div class="logo">flipkart</div>
+
+  <div class="search-container">
+    <input type="text" id="searchInput"
+           placeholder="Search products..."
+           onkeyup="searchProducts()">
+
+    <button class="search-btn" onclick="searchProducts()">🔍</button>
+  </div>
+
+  <button class="cart-btn" onclick="goToCart()">
+    Cart (<span id="cartCount">0</span>)
+  </button>
+
+  <!-- LOGOUT BUTTON ADDED -->
+  <button class="logout-btn" onclick="logoutUser()">Logout</button>
+</header>
+
+<aside class="sidebar" id="sidebar">
+  <h3>Categories</h3>
+  <ul>
+    <li onclick="filterCategory('all')">All</li>
+    <li onclick="filterCategory('footwear')">footwear</li>
+    <li onclick="filterCategory('shirt')">shirt</li>
+    <li onclick="filterCategory('Sunglasses')">Sunglasses</li>
+    <li onclick="filterCategory('Handbag')">Handbag</li>
+    <li onclick="filterCategory('accessories')">accessories</li>
+  </ul>
+</aside>
+
+<!-- SHOP SECTION -->
+<section class="products" id="shopSection">
+
+<div class="card" data-category="footwear">
+<img src="images/footwear.jpeg">
+<p>footwear</p>
+<span>₹250</span>
+<button onclick="addToCart('footwear',250,'images/footwear.jpeg')">
+Add to Cart
+</button>
+</div>
+
+<div class="card" data-category="shirt">
+<img src="images/shirt.jpeg">
+<p>shirt</p>
+<span>₹180</span>
+<button onclick="addToCart('shirt',180,'images/shirt.jpeg')">
+Add to Cart
+</button>
+</div>
+
+<div class="card" data-category="Handbag">
+<img src="images/Handbag.jpeg">
+<p>Handbag</p>
+<span>₹180</span>
+<button onclick="addToCart('Handbag',180,'images/Handbag.jpeg')">
+Add to Cart
+</button>
+</div>
+
+<div class="card" data-category="Sunglasses">
+<img src="images/Sunglasses.jpeg">
+<p>Sunglasses</p>
+<span>₹350</span>
+<button onclick="addToCart('Sunglasses',350,'images/Sunglasses.jpeg')">
+Add to Cart
+</button>
+</div>
+
+</section>
+
+<!-- CART PAGE -->
+<section class="cart-page" id="cartPage">
+<h2>My Cart 🛒</h2>
+<div id="cartContainer" class="products"></div>
+<h3>Total: ₹<span id="cartTotal">0</span></h3>
+
+<button class="clear-btn" onclick="clearCart()">Clear Cart</button>
+<button class="cart-btn" onclick="goBack()">Back to Shop</button>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
